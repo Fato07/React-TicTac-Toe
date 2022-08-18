@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { TicTacToeContext } from '../TicTacToeContext';
 
 const Home = () => {
+
+ const [state, setState] = useContext(TicTacToeContext);
+ let navigate = useNavigate();
+
+ const startGame = () => {
+  navigate("game-board");
+ };
+
  return (
-  <div>Home Page</div>
+  <>
+   <h1>Enter Player Names</h1>
+
+   <div class="form__group field">
+    <input type="input" class="form__field" placeholder="Player 1" name="player1" id='player1' required onChange={(e) => setState(state => ({ ...state, player1: e.target.value }))} />
+
+    <input type="input" class="form__field" placeholder="Player 2" name="player2" id='player2' required onChange={(e) => setState(state => ({ ...state, player2: e.target.value }))} />
+
+    <button onClick={startGame}>Start Game</button>
+
+   </div>
+  </>
  );
 };
 
