@@ -7,11 +7,8 @@ const ScoreBoard = () => {
  return (
   <>
    <h1>ScoreBoard</h1>
-   {state.games.map(game => {
-    <div>
-     {game.player1}
-    </div>;
-   })}
+   <p>{state.player1} : {state.xScore}</p>
+   <p>{state.player2} : {state.oScore}</p>
   </>
  );
 };

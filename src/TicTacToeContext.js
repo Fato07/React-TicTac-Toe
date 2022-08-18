@@ -6,7 +6,9 @@ const TicTacToeProvider = (props) => {
 
  const [state, setState] = useState({
   player1: "Fathin",
-  player2: "Peter"
+  player2: "Peter",
+  xScore: 0,
+  oScore: 0,
  });
 
  return (
