@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Board from '../components/Board';
+import ScoreBar from '../components/ScoreBar';
 import { TicTacToeContext } from '../TicTacToeContext';
 
 const GameBoard = () => {
@@ -18,9 +19,7 @@ const GameBoard = () => {
  const [state, setState] = useContext(TicTacToeContext);
  const [board, setBoard] = useState(Array(9).fill(null));
  const [xPlaying, setXPlaying] = useState(true);
- //const [scores, setScores] = useState({ xScore: 0, oScore: 0 });
  const [gameOver, setGameOver] = useState(false);
-
 
  const findWinner = (board) => {
   for (let i = 0; i < WIN_CONDITIONS.length; i++) {
@@ -72,7 +71,7 @@ const GameBoard = () => {
 
  return (
   <>
-   <div>{state.player1}{state.player2}</div>
+   <ScoreBar xPlaying={xPlaying} />
    <Board board={board} onClick={gameOver ? resetBoard : handleSquareClick} />
   </>
  );
