@@ -23,9 +23,9 @@ const Home = () => {
     <h3 className='home-title'>Enter Player Names To Begin</h3>
 
     <div class="form__group">
-     <input type="input" class="form__field" placeholder="Player 1" name="player1" id='player1' required onChange={(e) => setState(state => ({ ...state, player1: e.target.value }))} />
+     <input type="input" class="form__field" placeholder="Player X Name" name="xPlayer" id='xPlayer' required onChange={(e) => setState(state => ({ ...state, xPlayer: e.target.value }))} />
 
-     <input type="input" class="form__field" placeholder="Player 2" name="player2" id='player2' required onChange={(e) => setState(state => ({ ...state, player2: e.target.value }))} />
+     <input type="input" class="form__field" placeholder="Player O Name" name="oPlayer" id='oPlayer' required onChange={(e) => setState(state => ({ ...state, oPlayer: e.target.value }))} />
 
      <button className='button' onClick={startGame}>Start Game 🥳</button>
 

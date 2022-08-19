@@ -6,8 +6,8 @@ const ScoreBar = ({ xPlaying }) => {
 
  return (
   <div className="scorebar">
-   <span className={`score x-score ${!xPlaying && "inactive"}`}>{state.player1} - {state.xScore}</span>
-   <span className={`score o-score ${xPlaying && "inactive"}`}>{state.player2} - {state.oScore}</span>
+   <span className={`score x-score ${!xPlaying && "inactive"}`}>{state.xPlayer} - {state.xScore}</span>
+   <span className={`score o-score ${xPlaying && "inactive"}`}>{state.oPlayer} - {state.oScore}</span>
   </div>
  );
 };
