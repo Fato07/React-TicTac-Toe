@@ -1,0 +1,52 @@
+.scoreboard {
+	display: flex;
+	justify-content: center;
+}
+h3 {
+	text-transform: uppercase;
+	font-size: px;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: -30px;
+}
+
+.title {
+ text-align: center;
+}
+
+.points-container{
+	display: inline-flex;
+}
+.points p {
+	font-family: "Orbitron", sans-serif;
+	font-weight: 400;
+	font-size: 80px;
+	background: #000;
+	color: #f94f6d;
+	min-width: 205px;
+	margin-right: 25px;
+	text-align: center;
+}
+
+.scoreboard > div > div:nth-child(1){
+	margin-right: 15px;
+}
+.btn-primary {
+	background: transparent;
+	color: #9aabd8;
+	border-color: #9aabd8;
+	font-size: 1.5em;
+}
+.btn-primary:hover,
+.btn-primary:active {
+	color: #fff;
+	background-color: #f94f6d;
+	border-color: #f94f6d;
+}
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
+	color: #fff;
+	background-color: #f94f6d;
+	border-color: #f94f6d;
+	box-shadow: 0 0 0 0.25rem;
+}
