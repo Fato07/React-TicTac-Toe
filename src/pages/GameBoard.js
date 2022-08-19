@@ -4,7 +4,6 @@ import ScoreBar from '../components/ScoreBar';
 import { TicTacToeContext } from '../TicTacToeContext';
 
 const GameBoard = () => {
-
  const WIN_CONDITIONS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -13,7 +12,7 @@ const GameBoard = () => {
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [2, 4, 6]
+  [2, 4, 6],
  ];
 
  const [state, setState] = useContext(TicTacToeContext);
@@ -37,7 +36,7 @@ const GameBoard = () => {
   // Step 1: Update the board
   const updatedBoard = board.map((value, id) => {
    if (id === squareId) {
-    return xPlaying ? "X" : "O";
+    return xPlaying ? 'X' : 'O';
    } else {
     return value;
    }
@@ -48,15 +47,12 @@ const GameBoard = () => {
   // Step 2: Check if either player has won the game
   const winner = findWinner(updatedBoard);
   if (winner) {
-   if (winner === "O") {
-
+   if (winner === 'O') {
     state.oScore += 1;
-    setState(state => ({ ...state, oScore: state.oScore }));
-
+    saveGameState(updatedBoard);
    } else {
-
     state.xScore += 1;
-    setState(state => ({ ...state, xScore: state.xScore }));
+    saveGameState(updatedBoard);
    }
   }
 
@@ -69,10 +65,25 @@ const GameBoard = () => {
   setBoard(Array(9).fill(null));
  };
 
+ const saveGameState = (updatedBoard) => {
+  setState((state) => ({
+   ...state,
+   oScore: state.oScore,
+   xScore: state.xScore,
+   history: [...state.history, updatedBoard]
+  }));
+ };
+
  return (
   <>
    <ScoreBar xPlaying={xPlaying} />
-   <Board board={board} onClick={gameOver ? resetBoard : handleSquareClick} />
+   <Board
+    board={board}
+    onClick={gameOver ? resetBoard : handleSquareClick}
+   />
+   <div className='center'>
+    <button className='button' onClick={resetBoard}>Reset Board</button>
+   </div>
   </>
  );
 };
