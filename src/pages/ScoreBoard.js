@@ -6,7 +6,7 @@ const ScoreBoard = () => {
  const [state, setState] = useContext(TicTacToeContext);
  return (
   <>
-   <h1 class='title'>ScoreBoard</h1>
+   <h1 className='title'>ScoreBoard</h1>
    <div class="scoreboard">
     <div class="points-container">
      <div class="points">

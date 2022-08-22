@@ -41,7 +41,6 @@ const GameBoard = () => {
     return value;
    }
   });
-  console.log(updatedBoard);
   setBoard(updatedBoard);
 
   // Step 2: Check if either player has won the game
@@ -49,10 +48,10 @@ const GameBoard = () => {
   if (winner) {
    if (winner === 'O') {
     state.oScore += 1;
-    saveGameState(updatedBoard);
+    saveGameState(updatedBoard, winner);
    } else {
     state.xScore += 1;
-    saveGameState(updatedBoard);
+    saveGameState(updatedBoard, winner);
    }
   }
 
@@ -63,15 +62,40 @@ const GameBoard = () => {
  const resetBoard = () => {
   setGameOver(false);
   setBoard(Array(9).fill(null));
+  checkPreviousWinner();
  };
 
- const saveGameState = (updatedBoard) => {
+ const saveGameState = (updatedBoard, winner) => {
+
+  let players = [];
+  players.push(state.xPlayer, state.oPlayer);
+
+  let winnerName = "";
+  let loserName = "";
+
+  if (winner === 'X') {
+   winnerName = state.xPlayer;
+   loserName = state.oPlayer;
+  } else {
+   winnerName = state.oPlayer;
+   loserName = state.xPlayer;
+  }
+
   setState((state) => ({
    ...state,
    oScore: state.oScore,
    xScore: state.xScore,
-   history: [...state.history, updatedBoard]
+   boardHistory: [...state.boardHistory, updatedBoard],
+   playerHistory: [...state.playerHistory, players],
+   winnerHistory: [...state.winnerHistory, winnerName],
+   loserHistory: [...state.loserHistory, loserName]
   }));
+ };
+
+ const checkPreviousWinner = () => {
+  const prevWinner = state.winnerHistory[state.winnerHistory.length - 1];
+  const prevLoser = state.loserHistory[state.loserHistory.length - 1];
+  setState(state => ({ ...state, xPlayer: prevWinner, oPlayer: prevLoser }));
  };
 
  return (

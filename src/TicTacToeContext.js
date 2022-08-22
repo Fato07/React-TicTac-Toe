@@ -9,7 +9,10 @@ const TicTacToeProvider = (props) => {
   oPlayer: "Player 2",
   xScore: 0,
   oScore: 0,
-  history: [] //stores boards history as arrrays
+  boardHistory: [], //stores boards history as arrrays
+  playerHistory: [],
+  winnerHistory: [],
+  loserHistory: []
  });
 
  return (
@@ -20,3 +23,4 @@ const TicTacToeProvider = (props) => {
 };
 
 export { TicTacToeContext, TicTacToeProvider };
+
