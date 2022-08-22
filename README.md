@@ -1,6 +1,6 @@
 ## Prerequisites 🍪
 
-You should have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed on your PC. You should also own a GitHub account.
+You should have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed.
 
 ## Setup And Deployment 🔧
 
