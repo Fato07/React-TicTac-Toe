@@ -6,14 +6,12 @@ import ScoreBoard from './pages/ScoreBoard';
 import { TicTacToeProvider } from './TicTacToeContext';
 import Navbar from './components/Navbar';
 import GameHistory from './pages/GameHistory';
-import Board from './components/Board';
 
 function App() {
   return (
     <TicTacToeProvider>
       <Navbar />
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="game-board" element={<GameBoard />} />
         <Route path="score-board" element={<ScoreBoard />} />
