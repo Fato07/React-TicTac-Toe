@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
+import { initialGameState } from './Util.js';
 
 const TicTacToeContext = React.createContext([{}, () => { }]);
 
 const TicTacToeProvider = (props) => {
 
- const [state, setState] = useState({
-  xPlayer: "Player 1",
-  oPlayer: "Player 2",
-  xScore: 0,
-  oScore: 0,
-  boardHistory: [], //stores boards history as arrrays
-  playerHistory: [],
-  winnerHistory: [],
-  loserHistory: []
- });
+ const [state, setState] = useState(initialGameState);
 
  return (
   <TicTacToeContext.Provider value={[state, setState]}>
