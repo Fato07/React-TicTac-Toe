@@ -2,14 +2,16 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TicTacToeContext } from '../TicTacToeContext'
 import Typist from 'react-typist'
+import { initialGameState } from '../Util.js'
 
 const Home = () => {
   const [state, setState] = useContext(TicTacToeContext)
   let navigate = useNavigate()
 
-  const startGame = () => {
+  const startNewGame = () => {
+    setState(initialGameState);
     navigate('game-board')
-  }
+  };
 
   return (
     <>
@@ -45,8 +47,8 @@ const Home = () => {
             }
           />
 
-          <button className="button" onClick={startGame}>
-            Start Game 🥳
+          <button className="button" onClick={startNewGame}>
+            Start New Game 🥳
           </button>
         </div>
       </div>

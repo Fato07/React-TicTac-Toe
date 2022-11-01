@@ -25,24 +25,24 @@ const GameHistory = () => {
 
   return (
     <div>
-      <h1 className="title">Previously Played Games</h1>
+      <h1 className="title">Game History</h1>
       <div className="container">
         {objs && objs.length > 0
           ? objs?.map((obj, index) => {
-              return (
-                <div key={index} className="board-item">
-                  <p>Game {index + 1}</p>
-                  <p>Winner : {obj?.winner}</p>
-                  <p>Loser : {obj?.loser} </p>
-                  {obj.boardHistory.length > 0 ? (
-                    <Board board={obj.boardHistory} />
-                  ) : (
-                    ''
-                  )}
-                </div>
-              )
-            })
-          : ''}
+            return (
+              <div key={index} className="board-item">
+                <p>Game {index + 1}</p>
+                <p>Winner : {obj?.winner}</p>
+                <p>Loser : {obj?.loser} </p>
+                {obj.boardHistory.length > 0 ? (
+                  <Board board={obj.boardHistory} />
+                ) : (
+                  ''
+                )}
+              </div>
+            )
+          })
+          : <div>No Games Played, Please play your first game to see history</div>}
       </div>
     </div>
   )
